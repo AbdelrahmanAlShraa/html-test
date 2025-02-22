@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع سيارات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+        header {
+            background-color: #800000;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .car-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .car-card {
+            background-color: #333;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        .car-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        button {
+            background-color: #800000;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #a00000;
+        }
+    </style>
+</head>
+<body>
+    <header>معرض السيارات</header>
+    <div class="car-container" id="car-container"></div>
+    <script>
+        const cars = [
+            { name: "مرسيدس C200", img: "https://source.unsplash.com/300x200/?mercedes" },
+            { name: "بي إم دبليو M3", img: "https://source.unsplash.com/300x200/?bmw" },
+            { name: "أودي A6", img: "https://source.unsplash.com/300x200/?audi" }
+        ];
+
+        const container = document.getElementById("car-container");
+        
+        cars.forEach(car => {
+            const carCard = document.createElement("div");
+            carCard.className = "car-card";
+            carCard.innerHTML = `
+                <img src="${car.img}" alt="${car.name}">
+                <h3>${car.name}</h3>
+                <button onclick="alert('تم طلب ${car.name}')">اطلب الآن</button>
+            `;
+            container.appendChild(carCard);
+        });
+    </script>
+</body>
+</html>
